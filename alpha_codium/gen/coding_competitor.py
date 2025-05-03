@@ -28,7 +28,7 @@ class CodeContestsCompetitor:
         self.ai_handler = AiHandler()
 
     def render(self, problem_json, prompt: str):
-        environment = Environment(undefined=StrictUndefined)
+        environment = Environment(undefined=StrictUndefined, autoescape=True)
         environment.globals["zip"] = zip
         environment.globals["enumerate"] = enumerate
         sys_prompt = environment.from_string(self.prompt[prompt].system).render(problem_json)
