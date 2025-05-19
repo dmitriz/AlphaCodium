@@ -1,11 +1,11 @@
 import os
-import random
 
 import numpy as np
+import secrets
 
 
 def set_all_seeds(seed):
-    random.seed(seed)
+    secrets.SystemRandom().seed(seed)
     np.random.seed(seed)
     os.environ["PYTHONHASHSEED"] = str(seed)
 
