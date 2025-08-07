@@ -55,7 +55,7 @@ class TokenHandler:
         Returns:
         The sum of the number of tokens in the system and user strings.
         """
-        environment = Environment(undefined=StrictUndefined)
+        environment = Environment(undefined=StrictUndefined, autoescape=True)
         system_prompt = environment.from_string(system).render(vars)
         user_prompt = environment.from_string(user).render(vars)
         system_prompt_tokens = len(encoder.encode(system_prompt))
